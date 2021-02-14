@@ -34,9 +34,22 @@
         url('test_task_resources/static/font/ProximaNova-Light.eot') format('eot');
 }
 
+/* Общие стили */
 body {
     background-color: #F7F7F8;
     letter-spacing: 0.2px;
+}
+
+.container-fluid {
+    padding: 10px 12px 0;
+}
+
+.row {
+    margin: 0;
+}
+
+.picture {
+    display: none;
 }
 
 .row:first-of-type {
@@ -47,25 +60,22 @@ body {
     font-size: 24px;
 }
 
-.row {
-    margin: 10px 12px;
+.row:nth-of-type(3) > div > a {
+    display: flex;
+    flex-direction: column;
+    color: #262626;
+    text-decoration: none;
+    height: 100%;
+    padding: 8px 8px 0;
 }
 
-.col {
-    padding: 20px 16px 16px;
+img {
+    width: 100%;
+    height: auto;
 }
 
-p:first-of-type {
-    line-height: 31px;
-}
 
-p:last-of-type {
-    margin-top: 130px;
-    font-family: 'Proxima Nova SemiBold';
-    font-size: 16px;
-}
-
-p:last-of-type > span {
+.name > span:last-of-type {
     font-family: 'Proxima Nova Light';
 }
 
@@ -80,47 +90,66 @@ button:active, button:focus {
   outline: none;
 }
 
-.left-btn {
+button.left-btn {
     background: #7444DA url('svg/left.svg') no-repeat center;
     margin-right: 20px;
+    opacity: 0.5;
+    cursor: default;
 }
 
-.right-btn {
+button.right-btn {
     background: #7444DA url('svg/right.svg') no-repeat center;
-}
-
-.row:nth-of-type(2) {
-    font-size: 24px;
-}
-
-.row:nth-of-type(3) > div {
-    background-color: white;
-    margin-bottom: 8px;
-    border-radius: 12px;
-
-}
-
-.row:nth-of-type(3) > div > a {
-    margin: 8px 8px 0;
-    display: block;
-    color: #262626;
-    text-decoration: none
 }
 
 a:active, a:focus {
   outline: none;
 }
 
-
-.row:nth-of-type(3) p {
-    font-family: 'Proxima Nova Regular';
-    margin: 20px 8px;
-    line-height: 22px;
-    opacity: .8;
+.read-more:hover, .row:nth-of-type(3) > div:hover {
+    cursor: pointer;
 }
 
-.row:last-of-type  {
-    margin-top: -14px;
+/* Стили для мобильных устройств */
+.row:first-of-type > .col-xs-12 {
+    padding: 0;
+}
+
+.row:first-of-type {
+    padding: 20px 16px 16px;
+}
+
+.name {
+    margin-top: 130px;
+    font-family: 'Proxima Nova SemiBold';
+    font-size: 16px;
+}
+
+.feedback {
+    line-height: 31px;
+}
+
+.row:nth-of-type(2) {
+    font-size: 24px;
+    padding: 32px 0 25px;
+}
+
+.row:nth-of-type(3) > div {
+    padding: 0;
+    background-color: white;
+    margin-bottom: 8px;
+    border-radius: 12px;
+}
+
+.row:nth-of-type(3) p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-family: 'Proxima Nova Regular';
+    padding: 20px 0;
+    margin-bottom: 0;
+    line-height: 22px;
+    opacity: .8;
 }
 
 .read-more {
@@ -128,8 +157,78 @@ a:active, a:focus {
     color: #6527D9;
     font-size: 18px;
     display: inline-block;
+    margin: 16px 0 40px;
 }
 
-.read-more:hover, .row:nth-of-type(3) > div:hover {
-    cursor: pointer;
+/* Стили для десктопов */
+@media (min-width: 992px) {
+    .row:first-of-type {
+        justify-content: center;
+        align-items: center;
+        padding: 0 80px;
+    }
+
+    .name {
+        margin-top: 32px;
+        margin-bottom: 0;
+        font-size: 24px;
+        line-height: 31px;
+    }
+
+    .feedback {
+        line-height: 46px;
+        font-size: 38px;
+        margin-bottom: 0;
+    }
+
+    .picture {
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    .row:first-of-type > .col-lg-8 {
+        padding: 184px 0;
+    }
+
+    .row:first-of-type > .col-lg-4 {
+        padding: 100px 0 144px 44px;
+    }
+
+    .feedback-buttons {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .row:nth-of-type(2) {
+        font-size: 48px;
+        padding: 80px 0;
+    }
+
+    .row:nth-of-type(3) > div {
+        margin-right: 12px;
+        max-width: calc(33.33% - 8px);
+        flex-basis: calc(33.33% - 8px);
+    }
+
+    .row:nth-of-type(3) > div:nth-of-type(3n) {
+        margin-right: 0;
+    }
+
+    .row:nth-of-type(3) > div > a {
+        padding: 12px 12px 0;
+    }
+
+    .row:nth-of-type(3) p {
+        font-size: 24px;
+        font-weight: 300;
+        line-height: 31px;
+        opacity: .8;
+        padding: 20px 32px;
+    }
+
+    .read-more {
+        font-size: 24px;
+        display: inline-block;
+        margin: 52px 0 60px;
+    }
 }
